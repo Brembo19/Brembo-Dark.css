@@ -1,0 +1,54 @@
+/*Author Brembo.py */
+/* Website: Brembo.icu*/
+/* Theme: Brembo Dark */    
+
+:root {
+    --background-primary: #0d1b2a;
+    --background-secondary: #1b263b;
+    --background-tertiary: #415a77;
+    --header-primary: #d6d9dc;
+    --interactive-normal: #00bfff;
+}
+
+body {
+    background: linear-gradient(180deg, #0d1b2a, #1b263b) !important;
+    color: var(--header-primary) !important;
+}
+
+.header-2y4hMf {
+    background-color: var(--background-secondary) !important;
+}
+
+.sidebar-2K8pFh {
+    background-color: var(--background-primary) !important;
+    color: var(--header-primary) !important;
+}
+
+.channel-2QD9_O {
+    background-color: var(--background-secondary) !important;
+    border: 1px solid var(--background-tertiary) !important;
+}
+
+.interactive-1VRIlP:hover {
+    color: var(--interactive-normal) !important;
+    cursor: pointer;
+}
+
+.title-3qFJS0 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--header-primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    justify-content: flex-start;
+}
+
+.title-3qFJS0 span {
+    display: block;
+    content: "Discord Brembo Edit";
+    visibility: visible;
+}
