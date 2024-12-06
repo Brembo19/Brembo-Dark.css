@@ -8,47 +8,236 @@
     --background-tertiary: #415a77;
     --header-primary: #d6d9dc;
     --interactive-normal: #00bfff;
+    --text-muted: #8a929d;
+    --border-color: #2c3e50;
+    --scrollbar-thumb: #2f455a;
+    --scrollbar-track: #0d1b2a;
+    --hover-highlight: #334a66;
+    --button-bg: #00aaff;
+    --button-hover: #0088cc;
+    --danger: #ff4d4f;
+    --success: #28a745;
+    --warning: #ffc107;
+    --info: #17a2b8;
+    --gradient-accent: linear-gradient(90deg, #00aaff, #00ffbf);
+    --gradient-bg: linear-gradient(135deg, #1b263b, #415a77);
+    --progress-bg: #1d3557;
+    --progress-fill: #457b9d;
+    --shadow-color: rgba(0, 0, 0, 0.4);
 }
 
 body {
-    background: linear-gradient(180deg, #0d1b2a, #1b263b) !important;
-    color: var(--header-primary) !important;
+    background: var(--gradient-bg);
+    color: var(--header-primary);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
 }
 
-.header-2y4hMf {
-    background-color: var(--background-secondary) !important;
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: var(--background-secondary);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px var(--shadow-color);
 }
 
-.sidebar-2K8pFh {
-    background-color: var(--background-primary) !important;
-    color: var(--header-primary) !important;
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: var(--background-tertiary);
+    border-bottom: 2px solid var(--hover-highlight);
 }
 
-.channel-2QD9_O {
-    background-color: var(--background-secondary) !important;
-    border: 1px solid var(--background-tertiary) !important;
+.navbar a {
+    color: var(--header-primary);
+    text-decoration: none;
+    font-size: 1rem;
+    margin: 0 10px;
+    padding: 5px 10px;
+    transition: color 0.3s ease, background 0.3s ease;
 }
 
-.interactive-1VRIlP:hover {
-    color: var(--interactive-normal) !important;
+.navbar a:hover {
+    color: var(--button-bg);
+    background: var(--hover-highlight);
+    border-radius: 5px;
+}
+
+/* Table */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.table th,
+.table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid var(--border-color);
+}
+
+.table th {
+    background: var(--background-tertiary);
+    color: var(--header-primary);
+    font-weight: bold;
+}
+
+.table td {
+    background: var(--background-secondary);
+    color: var(--text-muted);
+}
+
+.table tr:hover {
+    background: var(--hover-highlight);
+    color: var(--header-primary);
+}
+
+/* Progress Bar */
+.progress-container {
+    background: var(--progress-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    height: 20px;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.progress-fill {
+    background: var(--progress-fill);
+    height: 100%;
+    width: 50%;
+    transition: width 0.5s ease;
+}
+
+/* Custom Buttons */
+.button-outline {
+    background: transparent;
+    color: var(--button-bg);
+    border: 2px solid var(--button-bg);
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button-outline:hover {
+    background: var(--button-bg);
+    color: #fff;
+}
+
+/* Animated Gradient Text */
+.gradient-text {
+    font-size: 2rem;
+    font-weight: bold;
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-animation 3s infinite;
+}
+
+@keyframes gradient-animation {
+    0% { background-position: 0%; }
+    100% { background-position: 100%; }
+}
+
+/* Cards with Hover Effects */
+.card-hover {
+    background: var(--background-tertiary);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 4px 6px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px var(--shadow-color);
+}
+
+/* Tooltip */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    color: var(--interactive-normal);
+}
+
+.tooltip .tooltip-text {
+    visibility: hidden;
+    width: 120px;
+    background: var(--background-secondary);
+    color: var(--header-primary);
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Notifications */
+.notification {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: var(--success);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: slide-in 0.5s ease-out;
+}
+
+@keyframes slide-in {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.notification-danger {
+    background: var(--danger);
+}
+
+.notification-info {
+    background: var(--info);
+}
+
+/* Image Gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
     cursor: pointer;
 }
 
-.title-3qFJS0 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--header-primary);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    justify-content: flex-start;
-}
-
-.title-3qFJS0 span {
-    display: block;
-    content: "Discord Brembo Edit";
-    visibility: visible;
+.gallery img:hover {
+    transform: scale(1.1);
 }
